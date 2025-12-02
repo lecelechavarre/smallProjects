@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Master | Digital Clock + Timer + Stopwatch</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <h1><i class="fas fa-clock"></i> Time Master</h1>
+            <p class="app-subtitle">Digital Clock + Timer + Stopwatch</p>
+        </header>
+
+        <nav class="tab-navigation">
+            <button class="tab-button active" data-tab="clock">
+                <i class="fas fa-clock"></i> Clock
+            </button>
+            <button class="tab-button" data-tab="timer">
+                <i class="fas fa-hourglass-half"></i> Timer
+            </button>
+            <button class="tab-button" data-tab="stopwatch">
+                <i class="fas fa-stopwatch"></i> Stopwatch
+            </button>
+        </nav>
+
+        <main class="tab-content">
+            <!-- Clock Tab -->
+            <section id="clock" class="tab-pane active">
+                <div class="clock-display">
+                    <div class="time-display" id="clockDisplay">00:00:00</div>
+                    <div class="date-display" id="dateDisplay">Monday, January 1, 2024</div>
+                    <div class="timezone-display" id="timezoneDisplay">Local Time</div>
+                </div>
+                <div class="theme-toggle">
+                    <button id="themeToggle" class="theme-button">
+                        <i class="fas fa-moon"></i> Dark Mode
+                    </button>
+                </div>
+            </section>
+
+            <!-- Timer Tab -->
+            <section id="timer" class="tab-pane">
+                <div class="timer-display">
+                    <div class="time-display" id="timerDisplay">00:00:00</div>
+                    <div class="timer-input">
+                        <div class="input-group">
+                            <label for="minutesInput">Minutes</label>
+                            <input type="number" id="minutesInput" min="0" max="60" value="5">
+                        </div>
+                        <div class="input-group">
+                            <label for="secondsInput">Seconds</label>
+                            <input type="number" id="secondsInput" min="0" max="59" value="0">
+                        </div>
+                    </div>
+                </div>
+                <div class="timer-controls">
+                    <button id="timerStart" class="control-button start">
+                        <i class="fas fa-play"></i> Start
+                    </button>
+                    <button id="timerPause" class="control-button pause" disabled>
+                        <i class="fas fa-pause"></i> Pause
+                    </button>
+                    <button id="timerReset" class="control-button reset">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+                <div class="alert-message" id="timerAlert">
+                    Timer set for 5 minutes. Click start to begin.
+                </div>
+            </section>
+
+            <!-- Stopwatch Tab -->
+            <section id="stopwatch" class="tab-pane">
+                <div class="stopwatch-display">
+                    <div class="time-display" id="stopwatchDisplay">00:00:00.00</div>
+                </div>
+                <div class="stopwatch-controls">
+                    <button id="stopwatchStart" class="control-button start">
+                        <i class="fas fa-play"></i> Start
+                    </button>
+                    <button id="stopwatchPause" class="control-button pause" disabled>
+                        <i class="fas fa-pause"></i> Pause
+                    </button>
+                    <button id="stopwatchReset" class="control-button reset">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                    <button id="stopwatchLap" class="control-button lap" disabled>
+                        <i class="fas fa-flag"></i> Lap
+                    </button>
+                </div>
+                <div class="laps-container">
+                    <h3><i class="fas fa-list-ol"></i> Lap Times</h3>
+                    <ul id="lapsList" class="laps-list">
+                        <!-- Lap times will be added here -->
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <p>Built with modern JavaScript & CSS | <span id="currentYear">2024</span></p>
+        </footer>
+    </div>
+
+    <!-- Audio for timer alert -->
+    <audio id="timerAlertSound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
