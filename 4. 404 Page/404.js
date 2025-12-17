@@ -1,5 +1,3 @@
-// Simple interaction for the 404 page
-
 document.addEventListener('DOMContentLoaded', function() {
     // Add mouse move effect for desktop
     if (window.matchMedia("(hover: hover)").matches) {
@@ -95,3 +93,4 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('404 - Page Not Found');
     console.log('This page is responsive and works on all devices!');
 });
+
